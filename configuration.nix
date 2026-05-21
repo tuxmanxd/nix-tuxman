@@ -80,6 +80,42 @@
   # Enable system76 scheduler
   services.system76-scheduler.enable = true;
 
+  # Enable garbage collector
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 10d";
+  };
+  nix.settings.auto-optimise-store = true;
+  boot.loader.systemd-boot.configurationLimit = 3;
+
+  # Enable auto upgrades
+  system.autoUpgrade = {
+    enable = true;
+    flags = [
+      "--print-build-logs"
+    ];
+    dates = "weekly";
+    allowReboot = false;
+  };
+  systemd.user.services.auto-flatpak-update = {
+    description = "Automatically update Flatpaks";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.flatpak}/bin/flatpak update -y --user";
+    };
+  };
+
+  systemd.user.timers.auto-flatpak-update = {
+    description = "Timer for Flatpak automatic updates";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "daily"; # Check for flatpak updates once a day
+      Persistent = true;
+    };
+  };
+
+
   # Enable btrfs compression
   fileSystems."/".options = [ "compress-force=zstd:1" "noatime" ];
   fileSystems."/home".options = [ "compress-force=zstd:1" "noatime" ];
