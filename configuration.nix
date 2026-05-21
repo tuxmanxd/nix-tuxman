@@ -77,6 +77,9 @@
   # Enable thermald
   services.thermald.enable = true;
 
+  # Enable system76 scheduler
+  services.system76-scheduler.enable = true;
+
   # Enable btrfs compression
   fileSystems."/".options = [ "compress-force=zstd:1" "noatime" ];
   fileSystems."/home".options = [ "compress-force=zstd:1" "noatime" ];
