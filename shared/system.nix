@@ -48,8 +48,11 @@
   # Enable auto upgrades
   system.autoUpgrade = {
     enable = true;
+    flake = "path:/etc/nixos#latitude";
     flags = [
       "--print-build-logs"
+      "--update-input" "nixpkgs"
+      "--update-input" "nix-cachyos-kernel"
     ];
     dates = "weekly";
     allowReboot = false;
