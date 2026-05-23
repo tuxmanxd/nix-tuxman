@@ -6,10 +6,11 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     iloader.url = "github:nab138/iloader";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+    pano-scrobbler-flake.url = "github:kawaiiDango/pano-scrobbler-flake";
 
   };
 
-  outputs = { self, nixpkgs, nix-cachyos-kernel, iloader, nix-flatpak, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-cachyos-kernel, iloader, nix-flatpak, pano-scrobbler-flake, ... }@inputs: {
     nixosConfigurations = {
 
       # Latitude profile
@@ -20,7 +21,9 @@
           {
             nixpkgs.overlays = [
               nix-cachyos-kernel.overlays.pinned
-              (final: prev: { iloader = iloader.packages.${prev.system}.default; })
+              (final: prev: { iloader = iloader.packages.${prev.system}.default;
+              pano-scrobbler = pano-scrobbler-flake.packages.${prev.system}.default;
+              })
             ];
           })
 

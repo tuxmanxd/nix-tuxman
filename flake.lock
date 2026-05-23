@@ -295,12 +295,47 @@
         "type": "github"
       }
     },
+    "nixpkgs_5": {
+      "locked": {
+        "lastModified": 1778869304,
+        "narHash": "sha256-30sZNZoA1cqF5JNO9fVX+wgiQYjB7HJqqJ4ztCDeBZE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "d233902339c02a9c334e7e593de68855ad26c4cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "pano-scrobbler-flake": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_5"
+      },
+      "locked": {
+        "lastModified": 1779270916,
+        "narHash": "sha256-OEVnC5U5zeTcw6Br5YHEfOO+2/4U+dUMVByLF2hFYOU=",
+        "owner": "kawaiiDango",
+        "repo": "pano-scrobbler-flake",
+        "rev": "299c8dcec11254928e7df9dbd92c0888ea7eed47",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kawaiiDango",
+        "repo": "pano-scrobbler-flake",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "iloader": "iloader",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-flatpak": "nix-flatpak",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_4",
+        "pano-scrobbler-flake": "pano-scrobbler-flake"
       }
     },
     "systems": {
