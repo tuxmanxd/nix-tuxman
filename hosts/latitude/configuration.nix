@@ -16,8 +16,8 @@
 
     ];
 
-  # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # Use latest CachyOS kernel.
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore-x86_64-v3;
 
   networking.hostName = "latitude-7400"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
