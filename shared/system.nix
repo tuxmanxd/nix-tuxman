@@ -57,22 +57,6 @@
     dates = "weekly";
     allowReboot = false;
   };
-  systemd.user.services.auto-flatpak-update = {
-    description = "Automatically update Flatpaks";
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.flatpak}/bin/flatpak update -y --user";
-    };
-  };
-
-  systemd.user.timers.auto-flatpak-update = {
-    description = "Timer for Flatpak automatic updates";
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "daily";
-      Persistent = true;
-    };
-  };
 
   # Enable btrfs compression
   fileSystems."/".options = [ "compress-force=zstd:1" "noatime" ];

@@ -4,6 +4,26 @@
   # Enable flatpaks
   services.flatpak.enable = true;
   environment.extraOutputsToInstall = [ "man" "share/applications" ];
+  services.flatpak = {
+    remotes = [
+    {
+      name = "flathub";
+      location = "https://dl.flathub.org/repo/flathub.flatpakrepo";
+    }
+    {
+      name = "pineconemc-repo";
+      location = "https://elyprismlauncher.github.io/flatpak/elyprismlauncher.flatpakrepo";
+    }
+    ];
+
+    packages = [
+      "one.ablaze.floorp"
+      "org.kde.neochat"
+      "io.github.elyprismlauncher.ElyPrismLauncher"
+    ];
+    uninstallUnmanaged = false;
+    update.auto.enable = true;
+  };
 
   # Enable podman
   virtualisation.podman = {
