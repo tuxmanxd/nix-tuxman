@@ -4,9 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    iloader.url = "github:nab138/iloader";
+
   };
 
-  outputs = { self, nixpkgs, nix-cachyos-kernel, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-cachyos-kernel, iloader, ... }@inputs: {
     nixosConfigurations = {
 
       # Latitude profile
@@ -17,8 +19,10 @@
           {
             nixpkgs.overlays = [
               nix-cachyos-kernel.overlays.pinned
+              (final: prev: { iloader = iloader.packages.${prev.system}.default; })
             ];
           })
+
 
           ./hosts/latitude/configuration.nix
         ];
