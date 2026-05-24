@@ -55,4 +55,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  # Install VmWare
+  virtualisation.vmware.host.enable = true;
 }
