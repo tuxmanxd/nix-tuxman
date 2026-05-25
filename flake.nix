@@ -12,6 +12,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-dotfiles = {
+      url = "git+ssh://git@github.com/tuxmanxd/niri-dotfiles.git?ref=main";
+      flake = false;
+    };
 
   };
 
@@ -21,6 +25,7 @@
       # Latitude profile
       latitude = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ({ pkgs, ... }:
           {

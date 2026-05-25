@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   home.username = "tuxman";
   home.homeDirectory = "/home/tuxman";
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
+
+  services.ssh-agent.enable = true;
 
   programs.zsh = {
     enable = true;
@@ -22,6 +24,19 @@
         theme = "gnzh";
     };
   };
+
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        user = "git";
+        identityFile = "~/.ssh/id_ed25519";
+      };
+    };
+  };
+
    programs.kitty = {
         enable = true;
         font = {
@@ -29,5 +44,13 @@
             size = 11;
         };
     };
+
+    home.file = {
+    ".config/niri" = {
+      source = inputs.niri-dotfiles;
+      recursive = true;
+      force = true;
+    };
+  };
 
 }
