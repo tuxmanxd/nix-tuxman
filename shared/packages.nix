@@ -59,6 +59,10 @@
   # Install VmWare
   virtualisation.vmware.host.enable = true;
 
+  # Install ZSH
+  programs.zsh.enable = true;
+  users.defaultUserShell = pkgs.zsh;
+
   # Enable vencord
   programs.nixcord = {
     enable = true;
