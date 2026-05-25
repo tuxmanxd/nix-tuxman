@@ -58,4 +58,40 @@
 
   # Install VmWare
   virtualisation.vmware.host.enable = true;
+
+  # Enable vencord
+  programs.nixcord = {
+    enable = true;
+    discord.vencord.enable = true;
+    user = "tuxman";
+    config.plugins = {
+      fakeNitro.enable = true;
+      decor = {
+        enable=true;
+        agreedToGuidelines=true;
+        };
+      ircColors.enable = true;
+      LastFMRichPresence = {
+        enable = true;
+        shareUsername = true;
+        useListeningStatus = true;
+        username = "TuxKun";
+        showLastFmLogo = false;
+        };
+      showHiddenThings.enable = true;
+      youtubeAdblock.enable=true;
+      USRBG.enable=true;
+      alwaysTrust.enable=true;
+      ReviewDB.enable=true;
+      betterUploadButton.enable=true;
+      ClearURLs.enable=true;
+      crashHandler.enable=true;
+      disableCallIdle.enable=true;
+      expressionCloner.enable=true;
+      fixImagesQuality.enable=true;
+      friendsSince.enable=true;
+      gameActivityToggle.enable=true;
+      permissionsViewer.enable=true;
+      };
+    };
 }

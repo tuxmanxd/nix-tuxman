@@ -7,7 +7,7 @@
       description = "TuxMan";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-        kdePackages.kate pkgs.kitty pkgs.fastfetch pkgs.btop pkgs.discord pkgs.git pkgs.iloader pkgs.pano-scrobbler
+        kdePackages.kate pkgs.kitty pkgs.fastfetch pkgs.btop (discord.override { withVencord = true; }) pkgs.git pkgs.iloader pkgs.pano-scrobbler
       ];
     };
 

@@ -7,10 +7,11 @@
     iloader.url = "github:nab138/iloader";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     pano-scrobbler-flake.url = "github:kawaiiDango/pano-scrobbler-flake";
+    nixcord.url = "github:FlameFlag/nixcord";
 
   };
 
-  outputs = { self, nixpkgs, nix-cachyos-kernel, iloader, nix-flatpak, pano-scrobbler-flake, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-cachyos-kernel, iloader, nix-flatpak, pano-scrobbler-flake, nixcord, ... }@inputs: {
     nixosConfigurations = {
 
       # Latitude profile
@@ -28,6 +29,7 @@
           })
 
           nix-flatpak.nixosModules.nix-flatpak
+          nixcord.nixosModules.nixcord
           ./hosts/latitude/configuration.nix
         ];
       };
