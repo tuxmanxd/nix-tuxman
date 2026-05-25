@@ -1,14 +1,34 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
+  # Enable home-manager
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    users.tuxman = {
+      imports = [
+        ../home.nix
+      ];
+
+      home.packages = with pkgs; [
+        kdePackages.kate
+        kitty
+        fastfetch
+        btop
+        (discord.override { withVencord = true; })
+        git
+        iloader
+        pano-scrobbler
+      ];
+    };
+  };
+
   # Define a user account
   users.users.tuxman = {
       isNormalUser = true;
       description = "TuxMan";
       extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [
-        kdePackages.kate pkgs.kitty pkgs.fastfetch pkgs.btop (discord.override { withVencord = true; }) pkgs.git pkgs.iloader pkgs.pano-scrobbler
-      ];
     };
 
   # Set your time zone.

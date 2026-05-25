@@ -63,6 +63,13 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
+  # Fonts
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.meslo-lg
+    ];
+  };
+
   # Enable vencord
   programs.nixcord = {
     enable = true;
