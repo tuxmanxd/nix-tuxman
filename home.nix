@@ -1,12 +1,15 @@
 { config, pkgs, inputs, ... }:
 {
+  # Configure home manager
   home.username = "tuxman";
   home.homeDirectory = "/home/tuxman";
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
+  # Enable ssh
   services.ssh-agent.enable = true;
 
+  # Configure ZSH
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -37,6 +40,7 @@
     };
   };
 
+   # Configure kitty
    programs.kitty = {
         enable = true;
         font = {
@@ -49,6 +53,7 @@
     '';
     };
 
+    # Enable dotfiles auto updating
     home.file = {
     ".config/niri" = {
       source = inputs.niri-dotfiles;
@@ -56,6 +61,7 @@
       force = true;
     };
   };
+
 
   # Configure fastfetch
   programs.fastfetch = {

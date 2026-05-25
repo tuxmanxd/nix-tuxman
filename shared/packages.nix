@@ -20,8 +20,16 @@
       "one.ablaze.floorp"
       "org.kde.neochat"
       "io.github.elyprismlauncher.ElyPrismLauncher"
+      "org.musicbrainz.Picard"
+      "org.telegram.desktop"
+      "org.localsend.localsend_app"
+      "us.zoom.Zoom"
+      "org.qbittorrent.qBittorrent"
+      "com.brave.Browser"
+      "net.lutris.Lutris"
+      "com.vysp3r.ProtonPlus"
     ];
-    uninstallUnmanaged = false;
+    uninstallUnmanaged = true;
     update.auto.enable = true;
   };
 
@@ -48,9 +56,13 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Enable 32bit support
+  hardware.graphics.enable32Bit = true;
+
   # List of system packages
   environment.systemPackages = with pkgs; [
-  pkgs.distrobox pkgs.gnome-disk-utility
+  distrobox
+  gnome-disk-utility
   ];
 
   # Install firefox.
