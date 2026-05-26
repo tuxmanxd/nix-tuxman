@@ -63,7 +63,15 @@
   environment.systemPackages = with pkgs; [
   distrobox
   gnome-disk-utility
+  libimobiledevice
+  ifuse
   ];
+
+  # Install usbmuxd
+  services.usbmuxd = {
+    enable = true;
+    package = pkgs.usbmuxd2;
+  };
 
   # Install firefox.
   programs.firefox.enable = true;
