@@ -65,7 +65,14 @@
   gnome-disk-utility
   libimobiledevice
   ifuse
+  qemu
   ];
+
+  # Enable arm64 virtualisation
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+  ];
+  systemd.tmpfiles.rules = [ "L+ /var/lib/qemu/firmware - - - - ${pkgs.qemu}/share/qemu/firmware" ];
 
   # Install usbmuxd
   services.usbmuxd = {
