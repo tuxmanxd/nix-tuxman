@@ -37,6 +37,7 @@
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;
+    defaultNetwork.settings.dns_enabled = true;
   };
 
   # Enable CUPS to print documents.
@@ -66,6 +67,9 @@
   libimobiledevice
   ifuse
   qemu
+  android-tools
+  podman-compose
+  podman-tui
   ];
 
   # Enable arm64 virtualisation
