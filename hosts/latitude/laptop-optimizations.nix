@@ -29,4 +29,13 @@
     enable = true;
     powerOnBoot = false;
   };
+
+  # Enable Zram swap
+  zramSwap = {
+    enable = true;
+    memoryPercent = 80;
+  };
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 98;
+  };
 }
