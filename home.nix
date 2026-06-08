@@ -2,7 +2,7 @@
 {
   # Configure home manager
   home.username = "tuxman";
-  home.homeDirectory = "/home/tuxman";
+  home.homeDirectory = if pkgs.stdenv.isDarwin then "/Users/tuxman" else "/home/tuxman";
   home.stateVersion = "25.11";
   programs.home-manager.enable = true;
 
@@ -12,6 +12,9 @@
   # Configure ZSH
   programs.zsh = {
     enable = true;
+    sessionVariables = {
+      PATH = "$HOME/.nix-profile/bin:/run/current-system/sw/bin:$PATH";
+    };
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
@@ -52,15 +55,6 @@
       include ~/.config/kitty/dank-tabs.conf
     '';
     };
-
-    # Enable dotfiles auto updating
-    home.file = {
-    ".config/niri" = {
-      source = inputs.niri-dotfiles;
-      recursive = true;
-      force = true;
-    };
-  };
 
 
   # Configure fastfetch

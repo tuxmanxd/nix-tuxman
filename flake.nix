@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     iloader.url = "github:nab138/iloader";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     pano-scrobbler-flake.url = "github:kawaiiDango/pano-scrobbler-flake";
@@ -19,7 +21,7 @@
 
   };
 
-  outputs = { self, nixpkgs, nix-cachyos-kernel, iloader, nix-flatpak, pano-scrobbler-flake, nixcord, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, nix-cachyos-kernel, nix-darwin, iloader, nix-flatpak, pano-scrobbler-flake, nixcord, home-manager, ... }@inputs: {
     nixosConfigurations = {
 
       # Latitude profile
@@ -44,6 +46,11 @@
         ];
       };
 
+    };
+
+    darwinConfigurations.latitude-darwin = nix-darwin.lib.darwinSystem {
+      modules = [ ./hosts/latitude-darwin/darwin-configuration.nix ];
+      specialArgs = { inherit inputs; };
     };
   };
 }
