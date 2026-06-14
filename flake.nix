@@ -44,6 +44,28 @@
         ];
       };
 
+      # Desktop profile
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ({ pkgs, ... }:
+          {
+            nixpkgs.overlays = [
+              nix-cachyos-kernel.overlays.pinned
+              (final: prev: { iloader = iloader.packages.${prev.system}.default;
+              pano-scrobbler = pano-scrobbler-flake.packages.${prev.system}.default;
+              })
+            ];
+          })
+
+          nix-flatpak.nixosModules.nix-flatpak
+          nixcord.nixosModules.nixcord
+          home-manager.nixosModules.home-manager
+          ./hosts/desktop/configuration.nix
+        ];
+      };
+
     };
   };
 }
