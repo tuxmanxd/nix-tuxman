@@ -53,15 +53,6 @@
     '';
     };
 
-    # Enable dotfiles auto updating
-    home.file = {
-    ".config/niri" = {
-      source = inputs.niri-dotfiles;
-      recursive = true;
-      force = true;
-    };
-  };
-
 
   # Configure fastfetch
   programs.fastfetch = {

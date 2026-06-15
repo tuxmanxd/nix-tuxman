@@ -26,7 +26,6 @@
       "us.zoom.Zoom"
       "org.qbittorrent.qBittorrent"
       "com.brave.Browser"
-      "net.lutris.Lutris"
       "com.vysp3r.ProtonPlus"
     ];
     uninstallUnmanaged = true;
