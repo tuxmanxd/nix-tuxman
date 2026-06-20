@@ -20,6 +20,7 @@
         git
         iloader
         pano-scrobbler
+        pkgs.osu-lazer-bin
       ];
     };
   };

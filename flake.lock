@@ -205,23 +205,6 @@
         "type": "github"
       }
     },
-    "niri-dotfiles": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1779716082,
-        "narHash": "sha256-pNnz00o1RACcAR2bjJocP5xEL6i+7+SsMPBcruOiF+c=",
-        "ref": "main",
-        "rev": "daab1ba4889dbd34359b71f7d6047c58a627e150",
-        "revCount": 2,
-        "type": "git",
-        "url": "ssh://git@github.com/tuxmanxd/niri-dotfiles.git"
-      },
-      "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "ssh://git@github.com/tuxmanxd/niri-dotfiles.git"
-      }
-    },
     "nix-cachyos-kernel": {
       "inputs": {
         "cachyos-kernel": "cachyos-kernel",
@@ -430,7 +413,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "iloader": "iloader",
-        "niri-dotfiles": "niri-dotfiles",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-flatpak": "nix-flatpak",
         "nixcord": "nixcord",
