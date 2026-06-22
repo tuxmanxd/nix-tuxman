@@ -26,4 +26,8 @@
       lutris
       mangohud
     ];
+
+    services.flatpak.packages = [
+      "com.dec05eba.gpu_screen_recorder"
+    ];
 }
