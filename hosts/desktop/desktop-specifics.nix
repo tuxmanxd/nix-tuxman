@@ -7,6 +7,10 @@
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
+    programs.gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
 
     # Enable gamemode
     programs.gamemode.enable = true;

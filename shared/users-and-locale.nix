@@ -21,6 +21,7 @@
         iloader
         pano-scrobbler
         pkgs.osu-lazer-bin
+        nicotine-plus
       ];
     };
   };
