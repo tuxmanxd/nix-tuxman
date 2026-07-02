@@ -9,7 +9,7 @@
     };
     programs.gamescope = {
       enable = true;
-      capSysNice = true;
+      capSysNice = false;
     };
 
     # Enable gamemode
@@ -29,6 +29,7 @@
       heroic
       lutris
       mangohud
+      davinci-resolve
     ];
 
     services.flatpak.packages = [

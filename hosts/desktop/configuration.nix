@@ -5,7 +5,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktop-optimizations.nix
-      ./desktop-specifics.nix
+      ./packages.nix
       ../../shared/wm.nix
       ../../shared/users-and-locale.nix
       ../../shared/packages.nix
