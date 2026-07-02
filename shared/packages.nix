@@ -130,7 +130,7 @@
       disableCallIdle.enable=true;
       expressionCloner.enable=true;
       fixImagesQuality.enable=true;
-      friendsSince.enable=true;
+      #friendsSince.enable=true;
       gameActivityToggle.enable=true;
       permissionsViewer.enable=true;
       };
