@@ -45,19 +45,6 @@
   nix.settings.auto-optimise-store = true;
   boot.loader.systemd-boot.configurationLimit = 3;
 
-  # Enable auto upgrades
-  system.autoUpgrade = {
-    enable = true;
-    flake = "path:/etc/nixos#latitude";
-    flags = [
-      "--print-build-logs"
-      "--update-input" "nixpkgs"
-      "--update-input" "nix-cachyos-kernel"
-    ];
-    dates = "weekly";
-    allowReboot = false;
-  };
-
   # Enable btrfs compression
   fileSystems."/".options = [ "compress-force=zstd:1" "noatime" ];
   fileSystems."/home".options = [ "compress-force=zstd:1" "noatime" ];
