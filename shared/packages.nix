@@ -69,6 +69,7 @@
   android-tools
   podman-compose
   podman-tui
+  thunar
   ];
 
   # Enable arm64 virtualisation
