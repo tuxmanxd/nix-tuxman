@@ -22,6 +22,7 @@
         pano-scrobbler
         pkgs.osu-lazer-bin
         nicotine-plus
+        grayjay
       ];
     };
   };
