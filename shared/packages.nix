@@ -106,6 +106,11 @@
     enable = true;
     discord.vencord.enable = true;
     user = "tuxman";
+    config.useQuickCss = true;
+    config.themeLinks = [
+        "https://raw.githubusercontent.com/refact0r/midnight-discord/refs/heads/master/themes/flavors/midnight-auto.theme.css"
+      ];
+    config.frameless = true;
     config.plugins = {
       fakeNitro.enable = true;
       decor = {
@@ -119,6 +124,7 @@
         useListeningStatus = true;
         username = "TuxKun";
         showLastFmLogo = false;
+        apiKey = "e37f4dcae47f450af6b41fa7c1b4e1b1";
         };
       showHiddenThings.enable = true;
       youtubeAdblock.enable=true;
