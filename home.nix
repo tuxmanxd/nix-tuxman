@@ -18,7 +18,7 @@
 
     shellAliases = {
         ll = "ls -l";
-        update = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --flake /etc/nixos#latitude";
+        update = "sudo nix flake update --flake /etc/nixos && sudo nixos-rebuild switch --flake /etc/nixos#$HOSTNAME";
     };
     history.size = 10000;
     oh-my-zsh = {
