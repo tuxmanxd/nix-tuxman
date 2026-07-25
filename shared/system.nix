@@ -51,6 +51,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;

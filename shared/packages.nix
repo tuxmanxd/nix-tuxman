@@ -70,6 +70,8 @@
   podman-compose
   podman-tui
   thunar
+  unrar
+  pmbootstrap
   ];
 
   # Enable arm64 virtualisation
@@ -123,7 +125,7 @@
         shareUsername = true;
         useListeningStatus = true;
         username = "TuxKun";
-        showLastFmLogo = false;
+        showLogo = false;
         apiKey = "e37f4dcae47f450af6b41fa7c1b4e1b1";
         };
       showHiddenThings.enable = true;
