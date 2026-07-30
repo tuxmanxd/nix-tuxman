@@ -27,6 +27,7 @@
       "org.qbittorrent.qBittorrent"
       "com.brave.Browser"
       "com.vysp3r.ProtonPlus"
+      "org.kde.haruna"
     ];
     uninstallUnmanaged = true;
     update.auto.enable = true;
